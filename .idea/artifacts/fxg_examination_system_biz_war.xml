@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="fxg-examination-system-biz:war">
+    <output-path>$PROJECT_DIR$/fxg-examination-system-biz/target</output-path>
+    <root id="archive" name="fs.war">
+      <element id="artifact" artifact-name="fxg-examination-system-biz:war exploded" />
+    </root>
+  </artifact>
+</component>

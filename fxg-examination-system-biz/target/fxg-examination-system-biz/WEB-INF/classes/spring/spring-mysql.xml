@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
+          p:dataSource-ref="dataSource"
+          p:mapperLocations="classpath:mapper/*.xml"/>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
+          p:basePackage="top.qilixiang.examination.dao"
+          p:sqlSessionFactoryBeanName="sqlSessionFactory"/>
+
+    <!--声明事务管理 采用注解方式-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+          p:dataSource-ref="dataSource"/>
+
+    <!--数据库设置-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          p:url="${jdbc_url}"
+          p:username="${jdbc_username}"
+          p:password="${jdbc_password}"
+          p:validationQuery="${validationQuery}"
+          p:initialSize="0"
+          p:maxActive="20"
+          p:minIdle="0"
+          p:maxWait="60000"
+          p:testOnBorrow="false"
+          p:testOnReturn="false"
+          p:testWhileIdle="true"
+          p:timeBetweenEvictionRunsMillis="60000"
+          p:minEvictableIdleTimeMillis="25200000"
+          p:removeAbandoned="true"
+          p:removeAbandonedTimeout="1800"
+          p:logAbandoned="true"
+          p:filters="mergeStat"
+          destroy-method="close" init-method="init"/>
+
+</beans>

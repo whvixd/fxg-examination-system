@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.qilixiang.examination.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="top.qilixiang.examination.model.User" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="user_account" property="userAccount" jdbcType="VARCHAR" />
+    <result column="user_pwd" property="userPwd" jdbcType="VARCHAR" />
+    <result column="user_idcard" property="userIdcard" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_sex" property="userSex" jdbcType="VARCHAR" />
+    <result column="user_nickname" property="userNickname" jdbcType="VARCHAR" />
+    <result column="user_status_id" property="userStatusId" jdbcType="VARCHAR" />
+    <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
+    <result column="user_qq" property="userQq" jdbcType="VARCHAR" />
+    <result column="user_telphone" property="userTelphone" jdbcType="VARCHAR" />
+    <result column="user_createdate" property="userCreatedate" jdbcType="TIMESTAMP" />
+    <result column="user_school_id" property="userSchoolId" jdbcType="VARCHAR" />
+    <result column="user_degree" property="userDegree" jdbcType="VARCHAR" />
+    <result column="user_birth" property="userBirth" jdbcType="VARCHAR" />
+    <result column="user_province_id" property="userProvinceId" jdbcType="VARCHAR" />
+    <result column="user_type" property="userType" jdbcType="VARCHAR" />
+    <result column="user_person_id" property="userPersonId" jdbcType="VARCHAR" />
+    <result column="first_log" property="firstLog" jdbcType="CHAR" />
+    <result column="user_school_prvo" property="userSchoolPrvo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_account, user_pwd, user_idcard, user_name, user_sex, user_nickname, user_status_id, 
+    user_email, user_qq, user_telphone, user_createdate, user_school_id, user_degree, 
+    user_birth, user_province_id, user_type, user_person_id, first_log, user_school_prvo
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from fxg_upc_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByuUerAccount" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from fxg_upc_user
+    where user_account = #{userAccount,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from fxg_upc_user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="top.qilixiang.examination.model.User" >
+    insert into fxg_upc_user (id, user_account, user_pwd, 
+      user_idcard, user_name, user_sex, 
+      user_nickname, user_status_id, user_email, 
+      user_qq, user_telphone, user_createdate, 
+      user_school_id, user_degree, user_birth, 
+      user_province_id, user_type, user_person_id, 
+      first_log, user_school_prvo)
+    values (#{id,jdbcType=VARCHAR}, #{userAccount,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR}, 
+      #{userIdcard,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userSex,jdbcType=VARCHAR}, 
+      #{userNickname,jdbcType=VARCHAR}, #{userStatusId,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, 
+      #{userQq,jdbcType=VARCHAR}, #{userTelphone,jdbcType=VARCHAR}, #{userCreatedate,jdbcType=TIMESTAMP}, 
+      #{userSchoolId,jdbcType=VARCHAR}, #{userDegree,jdbcType=VARCHAR}, #{userBirth,jdbcType=VARCHAR}, 
+      #{userProvinceId,jdbcType=VARCHAR}, #{userType,jdbcType=VARCHAR}, #{userPersonId,jdbcType=VARCHAR}, 
+      #{firstLog,jdbcType=CHAR}, #{userSchoolPrvo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="top.qilixiang.examination.model.User" >
+    insert into fxg_upc_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userAccount != null" >
+        user_account,
+      </if>
+      <if test="userPwd != null" >
+        user_pwd,
+      </if>
+      <if test="userIdcard != null" >
+        user_idcard,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="userSex != null" >
+        user_sex,
+      </if>
+      <if test="userNickname != null" >
+        user_nickname,
+      </if>
+      <if test="userStatusId != null" >
+        user_status_id,
+      </if>
+      <if test="userEmail != null" >
+        user_email,
+      </if>
+      <if test="userQq != null" >
+        user_qq,
+      </if>
+      <if test="userTelphone != null" >
+        user_telphone,
+      </if>
+      <if test="userCreatedate != null" >
+        user_createdate,
+      </if>
+      <if test="userSchoolId != null" >
+        user_school_id,
+      </if>
+      <if test="userDegree != null" >
+        user_degree,
+      </if>
+      <if test="userBirth != null" >
+        user_birth,
+      </if>
+      <if test="userProvinceId != null" >
+        user_province_id,
+      </if>
+      <if test="userType != null" >
+        user_type,
+      </if>
+      <if test="userPersonId != null" >
+        user_person_id,
+      </if>
+      <if test="firstLog != null" >
+        first_log,
+      </if>
+      <if test="userSchoolPrvo != null" >
+        user_school_prvo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userAccount != null" >
+        #{userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null" >
+        #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userIdcard != null" >
+        #{userIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null" >
+        #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userNickname != null" >
+        #{userNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatusId != null" >
+        #{userStatusId,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null" >
+        #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userQq != null" >
+        #{userQq,jdbcType=VARCHAR},
+      </if>
+      <if test="userTelphone != null" >
+        #{userTelphone,jdbcType=VARCHAR},
+      </if>
+      <if test="userCreatedate != null" >
+        #{userCreatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userSchoolId != null" >
+        #{userSchoolId,jdbcType=VARCHAR},
+      </if>
+      <if test="userDegree != null" >
+        #{userDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="userBirth != null" >
+        #{userBirth,jdbcType=VARCHAR},
+      </if>
+      <if test="userProvinceId != null" >
+        #{userProvinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null" >
+        #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="userPersonId != null" >
+        #{userPersonId,jdbcType=VARCHAR},
+      </if>
+      <if test="firstLog != null" >
+        #{firstLog,jdbcType=CHAR},
+      </if>
+      <if test="userSchoolPrvo != null" >
+        #{userSchoolPrvo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="top.qilixiang.examination.model.User" >
+    update fxg_upc_user
+    <set >
+      <if test="userAccount != null" >
+        user_account = #{userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null" >
+        user_pwd = #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userIdcard != null" >
+        user_idcard = #{userIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null" >
+        user_sex = #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userNickname != null" >
+        user_nickname = #{userNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatusId != null" >
+        user_status_id = #{userStatusId,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmail != null" >
+        user_email = #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userQq != null" >
+        user_qq = #{userQq,jdbcType=VARCHAR},
+      </if>
+      <if test="userTelphone != null" >
+        user_telphone = #{userTelphone,jdbcType=VARCHAR},
+      </if>
+      <if test="userCreatedate != null" >
+        user_createdate = #{userCreatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userSchoolId != null" >
+        user_school_id = #{userSchoolId,jdbcType=VARCHAR},
+      </if>
+      <if test="userDegree != null" >
+        user_degree = #{userDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="userBirth != null" >
+        user_birth = #{userBirth,jdbcType=VARCHAR},
+      </if>
+      <if test="userProvinceId != null" >
+        user_province_id = #{userProvinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null" >
+        user_type = #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="userPersonId != null" >
+        user_person_id = #{userPersonId,jdbcType=VARCHAR},
+      </if>
+      <if test="firstLog != null" >
+        first_log = #{firstLog,jdbcType=CHAR},
+      </if>
+      <if test="userSchoolPrvo != null" >
+        user_school_prvo = #{userSchoolPrvo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="top.qilixiang.examination.model.User" >
+    update fxg_upc_user
+    set user_account = #{userAccount,jdbcType=VARCHAR},
+      user_pwd = #{userPwd,jdbcType=VARCHAR},
+      user_idcard = #{userIdcard,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=VARCHAR},
+      user_nickname = #{userNickname,jdbcType=VARCHAR},
+      user_status_id = #{userStatusId,jdbcType=VARCHAR},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      user_qq = #{userQq,jdbcType=VARCHAR},
+      user_telphone = #{userTelphone,jdbcType=VARCHAR},
+      user_createdate = #{userCreatedate,jdbcType=TIMESTAMP},
+      user_school_id = #{userSchoolId,jdbcType=VARCHAR},
+      user_degree = #{userDegree,jdbcType=VARCHAR},
+      user_birth = #{userBirth,jdbcType=VARCHAR},
+      user_province_id = #{userProvinceId,jdbcType=VARCHAR},
+      user_type = #{userType,jdbcType=VARCHAR},
+      user_person_id = #{userPersonId,jdbcType=VARCHAR},
+      first_log = #{firstLog,jdbcType=CHAR},
+      user_school_prvo = #{userSchoolPrvo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.github.colin-lee:rpc-trace:2.0.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/colin-lee/rpc-trace/2.0.0-SNAPSHOT/rpc-trace-2.0.0-20171221.123920-43.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/colin-lee/rpc-trace/2.0.0-SNAPSHOT/rpc-trace-2.0.0-20171221.123920-43-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/colin-lee/rpc-trace/2.0.0-SNAPSHOT/rpc-trace-2.0.0-20171221.123920-43-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

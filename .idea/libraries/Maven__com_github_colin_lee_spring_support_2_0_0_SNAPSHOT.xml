@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.github.colin-lee:spring-support:2.0.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/colin-lee/spring-support/2.0.0-SNAPSHOT/spring-support-2.0.0-20171115.141120-42.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/colin-lee/spring-support/2.0.0-SNAPSHOT/spring-support-2.0.0-20171115.141120-42-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/github/colin-lee/spring-support/2.0.0-SNAPSHOT/spring-support-2.0.0-20171115.141120-42-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
