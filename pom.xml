@@ -56,7 +56,7 @@
         <c3p0.version>0.9.1.2</c3p0.version>
         <druid.version>1.0.12</druid.version>
         <fastjson.version>1.1.41</fastjson.version>
-        <jsoup.version>1.10.2</jsoup.version>
+        <jsoup.version>1.14.2</jsoup.version>
         <velocity.version>1.7</velocity.version>
         <velocity.tools.version>2.0</velocity.tools.version>
         <lombok.version>1.16.18</lombok.version>
